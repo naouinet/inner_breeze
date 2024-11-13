@@ -1,0 +1,102 @@
+{
+  "language_selection_title": "Wybór języka",
+  "language_instruction": "Wybierz preferowany język i naciśnij przycisk Kontynuuj.",
+
+  "guide_welcome_title": "Samouczek",
+  "guide_welcome_description": "Ta łatwa, ale skuteczna technika oddechowa obiecuje głęboki wewnętrzny spokój, oferując ukojenie pośród szalonego tempa życia.",
+  "safety_instruction": "Aby zapewnić sobie bezpieczeństwo, ćwicz w wygodnej pozycji leżącej lub siedzącej.",
+
+  "guide_method_title": "Metoda",
+  "guide_method_intro": "Wystarczy wykonać 4 kroki:",
+  "guide_method_steps": "1. Rytmiczny wdech i wydech przez 30 oddechów.\n2. Wydech i wstrzymanie oddechu.\n3. Głęboki wdech i wstrzymaj oddech na 15 sekund.\n4. Wydech, następnie powtórz krok 1\n\nWykonuj 3-10 rund opisanego procesu.",
+  "guide_method_personalize": "Następne strony pozwolą ci dostosować swoje doświadczenia.",
+  
+  "guide_step1_title": "Krok 1: Wdech i wydech",
+  "guide_step1_description": "Nabierz powietrza do płuc, zaczynając od brzucha aż po klatkę piersiową.\n\nPozwól oddechowi wypływać naturalnie, bez wysiłku.\n\nPowtarzaj tę czynność przez około 20-40 oddechów w stałym tempie.",
+  "breathing_circle": "Koło oddechowe",
+
+  "guide_step2_title": "Krok 2: Wydech i wstrzymanie",
+  "guide_step2_description": "Wykonaj normalny wydech i wstrzymaj oddech.\nCzas wstrzymania będzie się wydłużał wraz z kolejnymi ćwiczeniami i z każdą rundą.\n\nOkrąg w środku wskazuje czas wstrzymania oddechu oraz długość ostatniego wstrzymanego oddechu.\n\nPuść, gdy poczujesz potrzebę oddechu, unikaj nadmiernego wysiłku. Twoje ciało sygnalizuje, kiedy nadszedł czas na oddech.",
+  
+  "guide_step3_title": "Krok 3: Wdech i wstrzymanie",
+  "guide_step3_description": "Wykonaj pełny wdech i wstrzymaj go przez 15 sekund..\nNastępnie wykonaj wydech, kończąc pierwszą rundę.\n\nZ każdą rundą możesz wstrzymać oddech na dłużej i zejść głębiej.",
+
+  "back_button": "Wstecz",
+  "continue_button": "Kontynuuj",
+  "skip_button": "Przeskocz",
+  "next_button": "Dalej",
+  "finish_button": "Zakończ",
+  "save_button": "Zachowaj",
+  "cancel_button": "Anuluj",
+  "close_button": "Zamknij",
+  "start_button": "Start",
+  "stop_button": "Zatrzymaj",
+
+  "progress_title": "Widok postępu",
+  "start_journey": "Rozpocznij swoją podróż!",
+  "progress_records_info": "Tutaj pojawią się zapisy postępów.",
+  "begin_session_button": "Rozpocznij sesję",
+  "rounds_label": "Rundy",
+  "round_label": "Runda",
+  "edit_round": "Edytuj rundę",
+  "select_date": "Wybierz datę",
+  "select_time": "Wybierz czas",
+  "minutes_label": "Minuty",
+  "seconds_label": "Sekundy",
+
+  "get_ready": "Przygotuj się",
+  "finish_hold": "Zakończ wstrzymanie",
+  "in_breath": "Wdech",
+  "out_breath": "Wydech",
+  "recovery": "Odpoczynek",
+
+  "results_title": "Wyniki",
+  "rounds_completed": "Ukończone rundy: ",
+  "no_data": "Brak danych",
+  "save_progress": "Zapisz postęp",
+
+  "tempo_label": "Tempo",
+  "volume_label": "Głośność",
+  "breaths_label": "Oddechy",
+
+  "stop_session": "Zakończ sesję",
+  "stop_session_confirm": "Czy na pewno chcesz zakończyć sesję?",
+  "stop_session_button": "Zakończ sesję",
+  "continue_session_button": "Kontynuuj sesję",
+ 
+  "settings_title": "Ustawienia",
+  "show_tutorial_button": "Pokaż samouczka",
+  "breathing_circle_button": "Koło oddechowe",
+  "keep_screen_on_label": "Pozostaw ekran włączony podczas ćwiczeń",
+  "language_title": "Język",
+  "data_management_title": "Zarządzanie danymi",
+  "export_data_button": "Wyeksportuj dane",
+  "import_data_button": "Zaimportuj dane",
+  "reset_data_button": "Zresetuj dane",
+  "connect_support_title": "Kontakt i wsparcie",
+  "app_version_text": "Wersja aplikacji",
+  "new_version_available": "Dostępna jest nowa wersja",
+  "update_button": "Aktualizacje",
+  "privacy_policy": "Polityka prywatności",
+
+  "confirm_reset": "Potwierdź resetowanie",
+  "reset_data_warning": "Czy na pewno chcesz zresetować wszystkie dane? Tej czynności nie można cofnąć!",
+  "cancel": "Anuluj",
+  "reset_data": "Resetuj dane",
+  "data_imported_success": "Dane zostały pomyślnie zaimportowane!",
+  "error_importing_data": "Błąd podczas importowania danych: ",
+  "import_cancelled": "Importowanie zostało anulowane",
+  "data_exported_success": "Dane zostały pomyślnie wyeksportowane jako ",
+  "error_exporting_data": "Błąd podczas eksportowania danych: ",
+
+
+  "sessions": "Sesje",
+  "graph": "Wykres",
+  "breath_hold": "Wstrzymanie oddechu",
+
+  "breathing_tempo_label": "Tempo oddychania (sekundy na oddech)",
+  "tempo_very_fast": "Bardzo szybkie",
+  "tempo_fast": "Szybkie",
+  "tempo_medium": "Średnie",
+  "tempo_slow": "Wolne"
+}
