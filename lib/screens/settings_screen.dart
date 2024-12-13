@@ -168,26 +168,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _exportData() async {
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
-    final data = await userProvider.getAllData();
-    final jsonString = jsonEncode(data);
-
     try {
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      final data = await userProvider.getAllData();
+      final jsonString = jsonEncode(data);
+
       String formattedDate =
           DateFormat('yyyyMMdd_HHmmss').format(DateTime.now());
       String fileName = 'InnerBreeze_$formattedDate.json';
       Uint8List bytes = Uint8List.fromList(utf8.encode(jsonString));
 
-      await FileSaver.instance.saveFile(
+      // Try saving with a different method for Android
+      String? filePath = await FileSaver.instance.saveAs(
         name: fileName,
         bytes: bytes,
         ext: 'json',
         mimeType: MimeType.json,
       );
 
-      _showSnackBar('data_exported_success'.i18n() + fileName);
+      if (filePath != null) {
+        _showSnackBar('${'data_exported_success'.i18n()} to: $filePath');
+      } else {
+        _showSnackBar('${'error_exporting_data'.i18n()}: File path is null');
+      }
     } catch (e) {
-      _showSnackBar('error_exporting_data'.i18n() + e.toString());
+      _showSnackBar('${'error_exporting_data'.i18n()}: $e');
     }
   }
 

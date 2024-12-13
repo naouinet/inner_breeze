@@ -1,4 +1,7 @@
 # Changelog
+## [1.3.7] - 2024-12-12
+- Fix android export
+
 ## [1.3.6] - 2024-09-23
 - Bug fixes
 
