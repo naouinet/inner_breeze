@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
-use dioxus_logger::tracing::{info, Level};
 use dioxus::prelude::*;
+use tracing::info;
 
 mod app;
 mod data;
@@ -14,7 +14,6 @@ mod models;
 mod theme;
 
 fn main() {
-    dioxus_logger::init(Level::INFO).expect("failed to init logger");
     info!("starting app");
     launch(app::App);
 }

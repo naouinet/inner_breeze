@@ -1,6 +1,6 @@
 [package]
 name = "inbreeze"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["M. Schiller <hello@waozi.xyz>"]
 edition = "2021"
 
@@ -14,20 +14,32 @@ asset-dir = "assets"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.9"
 once_cell = "1.19.0"
-dioxus-logger = "0.5.1"
+tracing = "0.1.41"
 log = "0.4.6"
-manganis = "0.2.2" 
+manganis = "0.6.0" 
 futures-util = "0.3"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-dioxus = { version = "0.5", features = ["desktop", "router"] }
+dioxus = { version = "0.6.0", features = ["desktop", "router"] }
 tokio = { version = "1.0", features = ["time"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
-dioxus = { version = "0.5", features = ["web", "router"] }
+dioxus = { version = "0.6.0", features = ["web", "router"] }
 wasm-logger = "0.2.0"
 console_error_panic_hook = "0.1.7"
 futures-channel = "0.3"
 web-sys = { version = "0.3", features = ["Window", "CssStyleDeclaration"] }
 wasm-bindgen = "0.2"
 gloo-timers = { version = "0.3", features = ["futures"]}
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"

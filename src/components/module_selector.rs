@@ -1,6 +1,6 @@
 // src/components/module_selector.rs
 use dioxus::prelude::*;
-use dioxus_logger::tracing::*;
+use tracing::*;
 use crate::data::practice_loader::{load_practices, get_practice_by_id};
 use crate::theme::set_theme;
 use crate::i18n::translate;
