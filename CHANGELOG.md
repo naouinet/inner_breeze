@@ -1,4 +1,7 @@
 # Changelog
+## [1.3.8] - 2024-12-13
+- Rm dependencies info
+
 ## [1.3.7] - 2024-12-12
 - Fix android export
 
