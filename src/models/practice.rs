@@ -1,11 +1,18 @@
-use serde::Deserialize;
 use dioxus::prelude::*;
+use serde::Deserialize;
 
 #[derive(Clone, Debug)]
 pub struct ModuleContext {
     pub current_module: String,
 }
 
+#[derive(PartialEq)]
+pub enum PracticeState {
+    CountingDown,
+    Active,
+    Paused,
+    Complete,
+}
 
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct Practice {
@@ -64,7 +71,6 @@ pub struct Visual {
     pub colors: Colors,
 }
 
-
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct Colors {
     pub background_color: String,
@@ -76,7 +82,6 @@ pub struct Colors {
     pub text_secondary: String,
     pub shadow_color: String,
 }
-
 
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct PracticeStructure {
@@ -106,7 +111,6 @@ pub struct RepeatConfig {
     pub label: String,
 }
 
-
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct Step {
     pub id: String,
@@ -116,8 +120,6 @@ pub struct Step {
     pub sounds: Option<Vec<String>>,
     pub track_data: Option<bool>,
 }
-
-
 
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct StepDuration {
@@ -172,7 +174,6 @@ pub struct Asset {
     pub file: String,
 }
 
-
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 #[serde(untagged)]
 pub enum CustomizationOptionValue {
@@ -201,7 +202,6 @@ pub struct CustomizationOption {
     #[serde(flatten)]
     pub value: CustomizationOptionValue,
 }
-
 
 #[derive(Debug, Deserialize, Clone, PartialEq)]
 pub struct DataTracking {

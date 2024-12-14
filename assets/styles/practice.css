@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
 }
 
 .title {
@@ -93,7 +93,6 @@
     color: var(--text-primary);
 }
 
-
 .practice-exercise {
     color: var(--text-primary);
 }
@@ -111,8 +110,6 @@
     background-color: var(--secondary-color);
     color: var(--text-primary);
 }
-
-
 
 .breath-circle-container {
     position: relative;
@@ -140,8 +137,9 @@
 
 .inner {
     background-color: var(--secondary-color);
-    transition: transform 4s ease-in-out;
     transform-origin: center;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .inner.expanded {
