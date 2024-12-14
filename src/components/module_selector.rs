@@ -1,10 +1,13 @@
 // src/components/module_selector.rs
-use dioxus::prelude::*;
-use tracing::*;
-use crate::data::practice_loader::{load_practices, get_practice_by_id};
-use crate::theme::set_theme;
+use crate::data::practice_loader::{get_practice_by_id, load_practices};
 use crate::i18n::translate;
 use crate::models::practice::ModuleContext;
+use crate::theme::set_theme;
+use dioxus::prelude::*;
+use tracing::*;
+
+const MODULE_SELECTOR_CSS: Asset = asset!("/assets/styles/module_selector.css");
+
 #[component]
 pub fn ModuleSelector() -> Element {
     let mut module_context = use_context::<Signal<ModuleContext>>();
@@ -24,6 +27,8 @@ pub fn ModuleSelector() -> Element {
     });
 
     rsx! {
+        document::Link { rel: "stylesheet", href: MODULE_SELECTOR_CSS }
+
         div {
             class: "module-selector",
             div {

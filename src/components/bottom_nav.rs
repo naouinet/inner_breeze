@@ -1,10 +1,14 @@
-use dioxus::prelude::*;
-use crate::routes::Route;
 use crate::components::icon::Icon;
+use crate::routes::Route;
+use dioxus::prelude::*;
+
+const NAV_CSS: Asset = asset!("/assets/styles/nav.css");
 
 #[component]
 pub fn BottomNav(active_route: Route) -> Element {
     rsx! {
+        document::Link { rel: "stylesheet", href: NAV_CSS }
+
         nav { class: "bottom-nav",
             Link {
                 to: Route::ProgressPage {},

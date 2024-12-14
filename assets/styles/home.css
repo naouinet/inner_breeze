@@ -12,20 +12,14 @@
     justify-content: center;
     flex-grow: 1;
 }
-.logo svg {
+.logo {
     width: 160px;
     height: 160px;
+
+    filter: brightness(0) invert(0.9);
 }
-
-.logo path {
-    fill: var(--text-primary) !important;
-    stroke: var(--text-primary) !important;
-
-}
-
 
 .title {
     font-size: 2rem;
     margin: 1rem 0;
 }
-

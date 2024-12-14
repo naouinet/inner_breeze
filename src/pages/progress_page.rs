@@ -1,7 +1,8 @@
-use dioxus::prelude::*;
-use crate::routes::Route;
-use crate::components::icon::Icon;
 use crate::components::bottom_nav::BottomNav;
+use crate::routes::Route;
+use dioxus::prelude::*;
+
+const PROGRESS_CSS: Asset = asset!("/assets/styles/progress.css");
 
 #[component]
 pub fn ProgressPage() -> Element {
@@ -14,6 +15,8 @@ pub fn ProgressPage() -> Element {
     ];
 
     rsx! {
+        document::Link { rel: "stylesheet", href: PROGRESS_CSS }
+
         div { class: "container",
             div { class: "content",
                 h1 { class: "title", "Your Progress" }
@@ -23,7 +26,7 @@ pub fn ProgressPage() -> Element {
                             div { class: "progress-item",
                                 span { class: "progress-name", "{name}" }
                                 div { class: "progress-bar",
-                                    div { 
+                                    div {
                                         class: "progress-fill",
                                         style: "width: {percentage}%"
                                     }

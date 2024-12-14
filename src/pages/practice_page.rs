@@ -1,37 +1,37 @@
-use dioxus::prelude::*;
-use crate::data::practice_loader::get_practice_by_id;
-use crate::routes::Route;
-use crate::i18n::translate;
-use std::time::Duration;
 use crate::components::breathing_circle::BreathingCircle;
 use crate::components::icon::Icon;
-
-#[cfg(not(target_arch = "wasm32"))]
-use tokio::time::sleep;
+use crate::data::practice_loader::get_practice_by_id;
+use crate::i18n::translate;
+use crate::routes::Route;
+use dioxus::prelude::*;
+use std::time::Duration;
 
 #[cfg(target_arch = "wasm32")]
 use gloo_timers::future::TimeoutFuture;
 
+const PRACTICE_CSS: Asset = asset!("/assets/styles/practice.css");
 
 #[component]
 pub fn PracticePage(id: String) -> Element {
     let practice = use_signal(|| get_practice_by_id(&id));
 
     let sequences = use_memo(move || practice().unwrap().practice_structure.sequences.clone());
-    
+
     let mut current_round = use_signal(|| 1);
     let mut current_sequence = use_signal(|| 0usize);
     let mut current_step = use_signal(|| 0usize);
     let breath_count = use_signal(|| 0);
     let retention_time = use_signal(|| 0);
     let timer_active = use_signal(|| false);
-    
+
     let countdown = use_signal(|| 5);
     let circle_expanded = use_signal(|| false);
     let animation_duration = 4000; // 4 seconds for each expand/collapse cycle
 
     let current_step_data = use_memo(move || {
-        sequences().get(current_sequence()).and_then(|seq| seq.steps.get(current_step()).cloned())
+        sequences()
+            .get(current_sequence())
+            .and_then(|seq| seq.steps.get(current_step()).cloned())
     });
 
     let mut handle_next = move || {
@@ -42,7 +42,8 @@ pub fn PracticePage(id: String) -> Element {
             } else if current_sequence() < seq_vec.len() - 1 {
                 current_sequence.set(current_sequence() + 1);
                 current_step.set(0);
-            } else if current_round() < practice().unwrap().practice_structure.rounds.default as i32 {
+            } else if current_round() < practice().unwrap().practice_structure.rounds.default as i32
+            {
                 current_round.set(current_round() + 1);
                 current_sequence.set(0);
                 current_step.set(0);
@@ -53,21 +54,21 @@ pub fn PracticePage(id: String) -> Element {
     let on_next_click = move |_: Event<MouseData>| {
         handle_next();
     };
-    
+
     let on_stop_click = move |_: Event<MouseData>| {
         let nav = navigator();
-        nav.push(Route::HomePage {}); 
+        nav.push(Route::HomePage {});
     };
-    
+
     use_future(move || {
         to_owned![circle_expanded, breath_count, handle_next];
         async move {
             loop {
                 circle_expanded.set(true);
-                
+
                 #[cfg(not(target_arch = "wasm32"))]
                 tokio::time::sleep(Duration::from_millis(animation_duration)).await;
-                
+
                 #[cfg(target_arch = "wasm32")]
                 gloo_timers::future::TimeoutFuture::new(animation_duration).await;
 
@@ -81,7 +82,7 @@ pub fn PracticePage(id: String) -> Element {
 
                 #[cfg(not(target_arch = "wasm32"))]
                 tokio::time::sleep(Duration::from_millis(animation_duration)).await;
-                
+
                 #[cfg(target_arch = "wasm32")]
                 gloo_timers::future::TimeoutFuture::new(animation_duration).await;
             }
@@ -89,14 +90,15 @@ pub fn PracticePage(id: String) -> Element {
     });
 
     rsx! {
+        document::Link { rel: "stylesheet", href: PRACTICE_CSS }
         div {
             class: "practice-page",
             {practice.with(|practice| {
                 if let Some(practice) = practice {
                     rsx! {
-                        div { 
+                        div {
                             class: "practice-exercise",
-                            h2 { 
+                            h2 {
                                 class: "title",
                                 {if countdown() > 0 {
                                     translate("practice.get_ready")
@@ -104,7 +106,7 @@ pub fn PracticePage(id: String) -> Element {
                                     format!("{}: {}", translate("practice.round"), current_round())
                                 }}
                             }
-                            
+
                             {practice.practice_structure.sequences.iter().any(|seq| seq.id == "breathing_cycle").then(|| rsx!(
                                 BreathingCircle {
                                     circle_expanded: circle_expanded,
@@ -112,9 +114,9 @@ pub fn PracticePage(id: String) -> Element {
                                     breath_count: breath_count,
                                 }
                             ))}
-                            
+
                             div { class: "controls",
-                                button { 
+                                button {
                                     class: "control-button",
                                     onclick: on_stop_click,
                                     Icon {
@@ -130,7 +132,7 @@ pub fn PracticePage(id: String) -> Element {
                                         class: Some("nav-icon-img".to_string())
                                     }
                                 }
-                                button { 
+                                button {
                                     class: "control-button",
                                     onclick: |_| (),
                                     Icon {
